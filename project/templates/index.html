@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{%block content%}
+<main>
+    <div class="pelicula-principal">
+        <div class="contenedor">
+            <h3 class="titulo">NIKE Air</h3>
+            <p class="descripcion">
+                ¡Conoce la nueva colección de Nike! <br>
+                Acompañanos a celebrar su <b>75 aniversario</b> con increibles descuentos. 
+            </p>
+            <button role="button" class="boton">¡Comprar ahora!</button>
+            <button role="button" class="boton"></i>Más información</button>
+        </div>
+    </div>
+
+    <div class="peliculas-recomendadas contenedor">
+        <div class="contenedor-titulo-controles">
+            <h3>¡Descuentos en todas las marcas!</h3>
+            <div class="indicadores"></div>
+        </div>
+
+        <div class="contenedor-principal">
+            <button role="button" id="flecha-izquierda" class="flecha-izquierda"><i class="fas fa-angle-left"></i></button>
+
+            <div class="contenedor-carousel">
+                <div class="carousel">
+                    <div class="pelicula">
+                        <a href="#"><img src="../static/img/adidas.png" style="width: 200; background-color: white;" alt=""></a>
+                    </div>
+                    <div class="pelicula">
+                        <a href="#"><img src="../static/img/nike.png" style="width: 200; background-color: white;" alt=""></a>
+                    </div> 
+                    <div class="pelicula">
+                        <a href="#"><img src="../static/img/puma.png" style="width: 200; background-color: white;" alt=""></a>
+                    </div>
+                    <div class="pelicula">
+                        <a href="#"><img src="../static/img/under.png" style="width: 200; background-color: white;" alt=""></a>
+                    </div>
+                    <div class="pelicula">
+                        <a href="#"><img src="../static/img/new.jpg" style="width: 200; background-color: white;" alt=""></a>
+                    </div>
+                    <div class="pelicula">
+                        <a href="#"><img src="../static/img/charly.png" style="width: 200; background-color: white;" alt=""></a>
+                    </div>
+                    <div class="pelicula">
+                        <a href="#"><img src="../static/img/converse.jpg" style="width: 200; background-color: white;" alt=""></a>
+                    </div>
+                    <div class="pelicula">
+                        <a href="#"><img src="../static/img/fila.png" style="width: 200; background-color: white;" alt=""></a>
+                    </div>
+                    <div class="pelicula">
+                        <a href="#"><img src="../static/img/reebok.jpg" style="width: 200; background-color: white;" alt=""></a>
+                    </div>
+                    <div class="pelicula">
+                        <a href="#"><img src="../static/img/vans.jpg" style="width: 200; background-color: white;" alt=""></a>
+                    </div>
+                </div>
+            </div>
+
+            <button role="button" id="flecha-derecha" class="flecha-derecha"><i class="fas fa-angle-right"></i></button>
+        </div>
+    </div>
+</main>
+
+
+{%endblock  content%}
+

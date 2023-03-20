@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <!--  Meta  -->
+        <meta charset="UTF-8" />
+        <title>Innvictus</title>
+
+        <!--  Styles  -->
+        <link rel="stylesheet" href="../static/css/estilos.css">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="../static/css/index.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <header class="main-header">
+            <div class="container col-sm-12" style="background-color: black;">
+              <div class="row">
+                <div class="col-12">
+                  <nav class="navbar navbar-expand-lg navbar-dark main-nav">
+                    <a class="navbar-brand" href="/">
+                        <img src="../static/img/invictusLogo.jpg" width="80" height="80px" alt="Innvictus" >
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar icon-bar-1"></span>
+                        <span class="icon-bar icon-bar-2"></span>
+                        <span class="icon-bar icon-bar-3"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="mainMenu">
+                        <ul class="navbar-nav mr-auto text-uppercase f1 float-left">
+                            <li>
+                                <a href="/" >Inicio</a>
+                            </li>
+                            {% if not current_user.is_authenticated %}
+                            <li>
+                                <a href="{{ url_for('auth.login') }}"> Iniciar sesion </a>
+                            </li>
+                            {% endif %}
+                            
+                            {% if current_user.is_authenticated %}
+                            <li>
+                              <a href="{{ url_for('main.galeria') }}"> Productos </a>
+                           </li>
+                           {% endif %}
+
+
+                            <li>
+                                <a href="{{ url_for('auth.contactos') }}"> Contacto</a>
+                            </li>
+
+
+                            {% if  current_user.admin  %}
+                            <li> 
+                                <a href="{{ url_for('main.admin') }}"> Administrador </a>
+                            </li>
+                            {% endif %}
+
+                            {% if not current_user.is_authenticated %}
+                            <li>
+                                <a href="{{ url_for('auth.register') }}"> Registrar</a>
+                            </li>
+                            {% endif %}
+
+                            {% if current_user.is_authenticated %}
+                            <li>
+                              <a href="{{ url_for('auth.logout') }}"> {{current_user.name}}, Cerrar Sesión</a>
+                          </li>
+                          {% endif %}
+                        </ul>
+                    </div>
+                </nav>
+                </div>
+              </div>
+                
+            </div>
+            <div class="row">
+                
+                    <div class="container-fluid">                       
+
+                        <div class="form-group">
+                            {% block content %}
+
+                            {% endblock %}
+                        </div>                 
+                </div>  
+            </div> 
+        </div> 
+    </div>
+</header>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+<script src="../static/js/main.js"></script>
+<!-- Scripts -->
+
+</body>
+<footer class="bg-dark text-center text-white">
+  
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0);">
+      © 2022 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/">Innvictus.com</a>
+      <!-- Section: Social media -->
+      <section class="mb-2 p-3">
+        <!-- Facebook -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+  
+        <!-- Twitter -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-twitter"></i
+        ></a>
+  
+        <!-- Instagram -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-instagram"></i
+        ></a>
+      </section>
+      <!-- Section: Social media -->
+    </div>
+    <!-- Copyright -->
+  </footer>
+</html>

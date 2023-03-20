@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br><br>
+<div class="container-fluid">
+
+  {%with messages = get_flashed_messages()%}
+  {% if messages %}
+  {% for message in messages %}
+  <div class='alert alert-success ml-3 mr-3'>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong></strong>{{message}}
+  </div>
+  {% endfor %}
+  {% endif %}
+  {%endwith%}
+  {% if update %}
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="card">
+        <h5 class="card-header text-white" style="background-color: black;">
+          Nuevo producto
+        </h5>
+        <div class="card-body">
+          <p class="card-text">
+          <form method="POST" action="/updateCom/{{id}}" enctype="multipart/form-data">
+            <div class="form-group row">
+              <label class="col-4 col-form-label" for="txtNombre">Nombre:</label>
+              <div class="col-8">
+                <input id="txtNombre" value="{{nombre}}" name="txtNombre" placeholder="Ingrese el nombre del producto"
+                  type="text" class="form-control" required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="txtMarca" class="col-4 col-form-label">Marca:</label>
+              <div class="col-8">
+                <input id="txtMarca" value="{{marca}}" name="txtMarca" placeholder="Ingrese la marca del producto"
+                  type="text" class="form-control" required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="txtPrecio" class="col-4 col-form-label">Precio:</label>
+              <div class="col-8">
+                <input id="txtPrecio" value="{{precio}}" name="txtPrecio" placeholder="Ingrese el precio" type="number"
+                  class="form-control" required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-8">
+                <br>
+                <div class="card ">
+                  <h5 class="card-header text-white" style="background-color: black;">
+                    Imagen
+                  </h5>
+                  <div class="card-body">
+                    <input type="text" name="img" value="{{imagen}}">
+
+                    <img id="imgu" src="../static/img/{{imagen}}" width="190" height="100px" alt="">
+                  </div>
+                </div>
+                <input type="file" name="imagen" id="imagen" onchange="mostrar()" accept="image/png" required />
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="offset-4 col-8">
+                <button name="Guardar" type="submit" class="btn btn-success">Guardar</button>
+              </div>
+            </div>
+          </form>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+    <br>
+    {% else %}
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="card">
+          <h5 class="card-header text-white" style="background-color: black;">
+            Nuevo producto
+          </h5>
+          <div class="card-body">
+            <p class="card-text">
+            <form method="POST" action="/administrador" enctype="multipart/form-data">
+              <div class="form-group row">
+                <label class="col-4 col-form-label" for="txtNombre">Nombre:</label>
+                <div class="col-8">
+                  <input id="txtNombre" value="{{nombre}}" name="txtNombre" placeholder="Ingrese el nombre del producto"
+                    type="text" class="form-control" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="txtMarca" class="col-4 col-form-label">Marca:</label>
+                <div class="col-8">
+                  <input id="txtMarca" value="{{marca}}" name="txtMarca" placeholder="Ingrese la marca del producto"
+                    type="text" class="form-control" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="txtPrecio" class="col-4 col-form-label">Precio:</label>
+                <div class="col-8">
+                  <input id="txtPrecio" value="{{precio}}" name="txtPrecio" placeholder="Ingrese el precio"
+                    type="number" class="form-control" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-8">
+                  <input type="file" name="imagen" accept="image/png" required />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="offset-4 col-8">
+                  <button name="submit" type="submit" class="btn btn-success">Guardar</button>
+                </div>
+              </div>
+            </form>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+      <br>
+      {% endif %}
+      
+    </div>
+  </div>
+  <br><br>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div class="card">
+        <h5 class="card-header text-white" style="background-color: black;">
+          Productos
+        </h5>
+        <div class="card-body bg-light">
+          <p class="card-text">
+          <table class="table table-bordered table-hover table-lg">
+            <thead>
+              <tr>
+                <th>
+                  Nombre del producto
+                </th>
+                <th>
+                  Imagen
+                </th>
+                <th>
+                  Marca
+                </th>
+                <th>
+                  Precio
+                </th>
+
+                <th>
+                  Estatus
+                </th>
+                <th>
+                  Acciones
+                </th>
+              </tr>
+
+            </thead>
+            <tbody>
+              {%for prod in producto %}
+              <tr>
+                <td>
+                  {{prod.name}}
+
+                </td>
+                <td>
+                  <img src="../static/img/{{prod.img}}" width="150px" alt="">
+
+                </td>
+
+                <td>
+                  {{prod.marca}}
+                </td>
+                <td>
+                  {{prod.precio}}
+                </td>
+
+                <td>
+                  {%if prod.active == true%}
+                  Disponible
+                  {%else%}
+                  No disponible
+                  {%endif%}
+                </td>
+
+                <td>
+                  <div>
+                    <a href="{{url_for('main.delete',id=prod.id)}}" class="btn btn-danger" role="button">
+                      Eliminar</a>
+                  </div>
+
+                  <br>
+                  <div>
+
+                    <a href="{{url_for('main.update',id=prod.id)}}" class="btn btn-primary"
+                      role="button">Actualizar</a>
+                  </div>
+                </td>
+
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>
+{%endblock content%}

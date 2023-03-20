@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{%block content%}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <br>
+            <div class="card ">
+                <h5 class="card-header text-white text-center" style="background-color: rgb(14, 128, 10);">
+                    <img src="../static/img/invictusLogo.jpg" width="50" height="50px" alt="">
+                    Todos los productos
+                </h5>
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <div class="row">
+
+                            {% if producto == 0 %}
+
+                            <div class="row  mx-auto ">
+
+                                <div class="col-md-12 ">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <img alt="Bootstrap Image Preview" src="../static/img/inventario.png"
+                                                height='150px' width='380px' />
+                                        </div>
+                                    </div>
+
+                                    <br>
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+                                            <div class="alert alert-dismissable alert-warning">
+
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                    aria-hidden="true">
+                                                    ×
+                                                </button><strong>¡Lo sentimos!</strong> No hay Productos en estos
+                                                momentos
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            {% else %}
+
+
+                            {% for prod in producto %}
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <h5 class="card-header text-white" style="background-color: rgb(18, 119, 106);">
+                                        {{prod.name}}
+                                    </h5>
+                                    <div class="card-body text-center">
+                                        <img src="../static/img/{{prod.img}}" width="190" alt="">
+                                        <br><br>
+                                        <h5>Marca: {{prod.marca}}</h5>
+                                        <h5>Precio: $ {{prod.precio}}</h5>
+
+                                    </div>
+                                    <div class="card-footer">
+                                        <button class='btn btn-success btn-block'>Comprar</button>
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{%endblock content%}

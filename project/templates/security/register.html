@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <br>
+    <div class="box">       
+        {%with messages = get_flashed_messages()%}
+        {% if messages %}
+            {% for message  in messages  %}
+            <div class='alert alert-danger ml-3 mr-3'>
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+             <strong></strong>{{message}} . Ir a <a href="{{ url_for('auth.login') }}">login</a>.
+                            
+             </div>
+
+            {% endfor %}
+
+          {% endif %}
+         {%endwith%}
+       
+    </div>
+    <br>
+	<div class="row">
+		<div class="col-md-4 p-3" style="align-content: center;">
+            <img src="../static/img/logoInnvictus.png" width="300" alt="Innvictus" >
+        </div>
+		<div class="col-md-7">
+			<div class="card">
+				<h5 class="card-header text-white" style="background-color: black;"> 
+					Registro de Usuario
+				</h5>
+				<div class="card-body">
+                    <form method="POST" action="/security/register">
+                        <div class="field">
+                            <div class="control">
+                                <label for="Email">Email:</label>
+                                <input class="input is-large form-control" type="email" name="email" placeholder="Email" autofocus="">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <div class="control">
+                                <label for="nombre">Nombre de Usuario:</label>
+                                <input class="input is-large form-control" type="text" name="name" placeholder="Nombre" autofocus="">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <div class="control">
+                                <label for="password">Contraseña:</label>
+                                <input class="input is-large form-control" type="password" name="password" placeholder="Password">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="text-center">
+                            <button class="btn btn-success text-center">Registrar</button>
+                        </div>
+                    </form>
+				</div>
+			</div>
+		</div>
+        <div class="col-md-1" style="align-self: center;">
+        </div>
+	</div>
+</div>
+<br>
+{% endblock %}

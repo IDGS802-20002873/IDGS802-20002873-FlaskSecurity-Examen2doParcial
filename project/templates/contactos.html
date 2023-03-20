@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{%block content%}
+
+<br>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-5">
+      
+      <div class="card">
+        <h5 class="card-header text-white" style="background-color: black;">
+          <img src="../static/img/invictusLogo.jpg" width="80" height="80px" alt="">
+          Nuestra filosofia
+        </h5>
+        <div class="card-body">
+          <p class="card-text">
+            
+            <h5> Misión:  </h5>
+            <p>
+               Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
+            </p>  
+            <h5>Visión:</h5> 
+            <p>
+              Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
+            </p>
+            <h5> Valores:  </h5>
+            <p>
+               Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
+            </p>           
+          </p>
+        </div>
+      </div>
+      <br>
+			
+		</div>
+    <div class="col-md-5">
+      <div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						<h5 class="card-header text-white" style="background-color: black;">
+              <img src="../static/img/invictusLogo.jpg" width="80" height="80px" alt="">
+              Información de contacto
+            </h5>
+						<div class="card-body">
+							<p class="card-text">
+								<div class="container">
+                  <div class="container">
+                    <strong>Oficina:</strong> 123456789
+                    <br>
+                    <address>
+                        <strong>Twitter, Innvictus.</strong><br /><strong>Facebook, Innvictus.</strong><br /><strong>Instagram, Innvictus.</strong><br /> 795 Folsom Ave, Suite 600<br /> San Francisco, CA 94107<br /> Tel: (123) 456-7890
+                   </address>
+                    
+                    <hr>
+                </div>
+                <div class="container">
+                    <form role="form" id="Formulario" action="" method="POST" novalidate>
+                        <div class="form-group row">
+                            <label class="col-4 col-form-label" for="txtNombre">Nombre:</label> 
+                            <div class="col-8">
+                              <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text">
+                                    <i class="fa fa-address-book"></i>
+                                  </div>
+                                </div> 
+                                <input id="txtNombre" name="txtNombre" placeholder="Ingrese el nombre del producto" type="text" class="form-control" required="required">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label for="txtMotivo" class="col-4 col-form-label">Motivo</label> 
+                            <div class="col-8">
+                              <select id="txtMotivo" name="txtMotivo" class="custom-select" required="required">
+                                <option value="1">Sugerencia</option>
+                                <option value="1">Reclamo</option>
+                                <option value="1">Solicitud</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label for="txtCorreo" class="col-4 col-form-label">Correo:</label> 
+                            <div class="col-8">
+                              <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text">@</div>
+                                </div> 
+                                <input id="txtCorreo" name="txtCorreo" type="text" class="form-control" required="required">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label for="textarea" class="col-4 col-form-label">Comentario:</label> 
+                            <div class="col-8">
+                              <textarea id="textarea" name="textarea" cols="40" rows="3" class="form-control" required="required"></textarea>
+                            </div>
+                          </div> 
+                          <div class="form-group row">
+                            <div class="offset-4 col-8">
+                              <button name="submit" type="submit" class="btn btn-primary">Enviar</button>
+                            </div>
+                          </div>
+                    </form>
+                </div>       
+            </div>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+    </div>
+		<div class="col-md-1"></div>
+	</div>
+</div>
+
+{%endblock  content%}
